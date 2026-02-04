@@ -1,13 +1,13 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { Plane, MessageCircle, Building2, Lock, MoreHorizontal } from "lucide-react";
+import { Plane, MessageCircle, Building2, Lock, MoreHorizontal, Car, Ship, Sparkles, Shield, Snowflake, Shirt } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Car, Ship, Sparkles, Shield } from "lucide-react";
 
 const navItems = [
   { to: "/dashboard", icon: Plane, label: "Transportes" },
@@ -20,6 +20,8 @@ const moreItems = [
   { to: "/dashboard/carros", icon: Car, label: "Carros de Luxo" },
   { to: "/dashboard/iates", icon: Ship, label: "Iates & Barcos" },
   { to: "/dashboard/experiencias", icon: Sparkles, label: "Experiências VIP" },
+  { to: "/dashboard/esqui", icon: Snowflake, label: "Ski & Snow" },
+  { to: "/dashboard/guarda-roupa", icon: Shirt, label: "Guarda-Roupa" },
   { to: "/dashboard/seguros", icon: Shield, label: "Seguros" },
 ];
 
