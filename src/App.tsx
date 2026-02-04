@@ -12,6 +12,10 @@ import Concierge from "./pages/dashboard/Concierge";
 import Hospedagem from "./pages/dashboard/Hospedagem";
 import TheVault from "./pages/dashboard/TheVault";
 import Profile from "./pages/dashboard/Profile";
+import Carros from "./pages/dashboard/Carros";
+import Iates from "./pages/dashboard/Iates";
+import Experiencias from "./pages/dashboard/Experiencias";
+import Seguros from "./pages/dashboard/Seguros";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +42,10 @@ const App = () => (
               <Route path="hospedagem" element={<Hospedagem />} />
               <Route path="vault" element={<TheVault />} />
               <Route path="profile" element={<Profile />} />
+              <Route path="carros" element={<Carros />} />
+              <Route path="iates" element={<Iates />} />
+              <Route path="experiencias" element={<Experiencias />} />
+              <Route path="seguros" element={<Seguros />} />
             </Route>
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
