@@ -7,6 +7,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import Login from "./pages/Login";
+import ResetPassword from "./pages/ResetPassword";
 import Transportes from "./pages/dashboard/Transportes";
 import Concierge from "./pages/dashboard/Concierge";
 import Hospedagem from "./pages/dashboard/Hospedagem";
@@ -31,6 +32,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route
               path="/dashboard"
               element={
