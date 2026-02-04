@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Mail, Lock, ArrowRight } from "lucide-react";
+import { Loader2, Mail, Lock, ArrowRight, ArrowLeft } from "lucide-react";
 
 const Login = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [mode, setMode] = useState<"login" | "signup" | "forgot">("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -20,14 +20,14 @@ const Login = () => {
     setLoading(true);
 
     try {
-      if (isLogin) {
+      if (mode === "login") {
         const { error } = await supabase.auth.signInWithPassword({
           email,
           password,
         });
         if (error) throw error;
         navigate("/dashboard");
-      } else {
+      } else if (mode === "signup") {
         const { error } = await supabase.auth.signUp({
           email,
           password,
@@ -52,6 +52,44 @@ const Login = () => {
     }
   };
 
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Email enviado",
+        description: "Verifique sua caixa de entrada para redefinir sua senha.",
+      });
+      setMode("login");
+    } catch (error: any) {
+      toast({
+        title: "Erro",
+        description: error.message,
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getTitle = () => {
+    switch (mode) {
+      case "login":
+        return "Bem-vindo de volta";
+      case "signup":
+        return "Você foi convidado";
+      case "forgot":
+        return "Recuperar acesso";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-aurora-black flex items-center justify-center p-6">
       {/* Background decorative elements */}
@@ -73,74 +111,134 @@ const Login = () => {
             </h1>
             <div className="w-12 h-px bg-gold/50 mx-auto mb-4" />
             <p className="text-silk text-sm tracking-wider">
-              {isLogin ? "Bem-vindo de volta" : "Você foi convidado"}
+              {getTitle()}
             </p>
           </div>
 
-          {/* Form */}
-          <form onSubmit={handleAuth} className="space-y-6">
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-silk text-xs tracking-wider uppercase">
-                Email
-              </Label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-silk" />
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="seu@email.com"
-                  className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-silk/50 focus:border-gold/50 focus:ring-gold/20"
-                  required
-                />
+          {/* Forgot Password Form */}
+          {mode === "forgot" ? (
+            <form onSubmit={handleForgotPassword} className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-silk text-xs tracking-wider uppercase">
+                  Email
+                </Label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-silk" />
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="seu@email.com"
+                    className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-silk/50 focus:border-gold/50 focus:ring-gold/20"
+                    required
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="password" className="text-silk text-xs tracking-wider uppercase">
-                Senha
-              </Label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-silk" />
-                <Input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-silk/50 focus:border-gold/50 focus:ring-gold/20"
-                  required
-                  minLength={6}
-                />
+              <Button
+                type="submit"
+                disabled={loading}
+                className="w-full gold-gradient text-aurora-black font-medium tracking-wider hover:opacity-90 transition-opacity h-12"
+              >
+                {loading ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <>
+                    Enviar Link
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </>
+                )}
+              </Button>
+
+              <button
+                type="button"
+                onClick={() => setMode("login")}
+                className="w-full flex items-center justify-center gap-2 text-silk text-sm hover:text-gold transition-colors"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Voltar ao login
+              </button>
+            </form>
+          ) : (
+            <>
+              {/* Login/Signup Form */}
+              <form onSubmit={handleAuth} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-silk text-xs tracking-wider uppercase">
+                    Email
+                  </Label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-silk" />
+                    <Input
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="seu@email.com"
+                      className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-silk/50 focus:border-gold/50 focus:ring-gold/20"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <Label htmlFor="password" className="text-silk text-xs tracking-wider uppercase">
+                      Senha
+                    </Label>
+                    {mode === "login" && (
+                      <button
+                        type="button"
+                        onClick={() => setMode("forgot")}
+                        className="text-gold/70 text-xs hover:text-gold transition-colors"
+                      >
+                        Esqueceu a senha?
+                      </button>
+                    )}
+                  </div>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-silk" />
+                    <Input
+                      id="password"
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="••••••••"
+                      className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-silk/50 focus:border-gold/50 focus:ring-gold/20"
+                      required
+                      minLength={6}
+                    />
+                  </div>
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full gold-gradient text-aurora-black font-medium tracking-wider hover:opacity-90 transition-opacity h-12"
+                >
+                  {loading ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <>
+                      {mode === "login" ? "Entrar" : "Criar Conta"}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </>
+                  )}
+                </Button>
+              </form>
+
+              {/* Toggle */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => setMode(mode === "login" ? "signup" : "login")}
+                  className="text-silk text-sm hover:text-gold transition-colors"
+                >
+                  {mode === "login" ? "Não tem conta? Solicite seu convite" : "Já possui acesso? Entre aqui"}
+                </button>
               </div>
-            </div>
-
-            <Button
-              type="submit"
-              disabled={loading}
-              className="w-full gold-gradient text-aurora-black font-medium tracking-wider hover:opacity-90 transition-opacity h-12"
-            >
-              {loading ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <>
-                  {isLogin ? "Entrar" : "Criar Conta"}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </>
-              )}
-            </Button>
-          </form>
-
-          {/* Toggle */}
-          <div className="mt-8 text-center">
-            <button
-              onClick={() => setIsLogin(!isLogin)}
-              className="text-silk text-sm hover:text-gold transition-colors"
-            >
-              {isLogin ? "Não tem conta? Solicite seu convite" : "Já possui acesso? Entre aqui"}
-            </button>
-          </div>
+            </>
+          )}
 
           {/* Decorative line */}
           <div className="mt-8 flex items-center gap-4">
