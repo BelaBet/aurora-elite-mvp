@@ -15,6 +15,8 @@ import Profile from "./pages/dashboard/Profile";
 import Carros from "./pages/dashboard/Carros";
 import Iates from "./pages/dashboard/Iates";
 import Experiencias from "./pages/dashboard/Experiencias";
+import Esqui from "./pages/dashboard/Esqui";
+import GuardaRoupa from "./pages/dashboard/GuardaRoupa";
 import Seguros from "./pages/dashboard/Seguros";
 import NotFound from "./pages/NotFound";
 
@@ -45,6 +47,8 @@ const App = () => (
               <Route path="carros" element={<Carros />} />
               <Route path="iates" element={<Iates />} />
               <Route path="experiencias" element={<Experiencias />} />
+              <Route path="esqui" element={<Esqui />} />
+              <Route path="guarda-roupa" element={<GuardaRoupa />} />
               <Route path="seguros" element={<Seguros />} />
             </Route>
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
