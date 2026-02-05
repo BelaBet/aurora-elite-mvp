@@ -12,6 +12,7 @@ import {
   Search
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import TravelHistory from "@/components/dashboard/TravelHistory";
 
 const aircrafts = [
   {
@@ -83,6 +84,9 @@ const Transportes = () => {
 
   return (
     <div className="space-y-8 animate-fade-in">
+      {/* Travel History */}
+      <TravelHistory />
+
       {/* Route Selector */}
       <Card className="glass border-gold/10">
         <CardContent className="p-6">
