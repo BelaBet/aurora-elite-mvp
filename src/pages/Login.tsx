@@ -110,7 +110,7 @@ const Login = () => {
               AURORA ELITE
             </h1>
             <div className="w-12 h-px bg-gold/50 mx-auto mb-4" />
-            <p className="text-silk text-sm tracking-wider">
+            <p className="text-white/70 text-sm tracking-wider">
               {getTitle()}
             </p>
           </div>
@@ -119,18 +119,18 @@ const Login = () => {
           {mode === "forgot" ? (
             <form onSubmit={handleForgotPassword} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-silk text-xs tracking-wider uppercase">
+                <Label htmlFor="email" className="text-gold-muted text-xs tracking-wider uppercase font-medium">
                   Email
                 </Label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-silk" />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gold-muted" />
                   <Input
                     id="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="seu@email.com"
-                    className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-silk/50 focus:border-gold/50 focus:ring-gold/20"
+                    className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-gold/50 focus:ring-gold/20"
                     required
                   />
                 </div>
@@ -154,7 +154,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={() => setMode("login")}
-                className="w-full flex items-center justify-center gap-2 text-silk text-sm hover:text-gold transition-colors"
+                className="w-full flex items-center justify-center gap-2 text-white/70 text-sm hover:text-gold transition-colors"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Voltar ao login
@@ -165,47 +165,47 @@ const Login = () => {
               {/* Login/Signup Form */}
               <form onSubmit={handleAuth} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-silk text-xs tracking-wider uppercase">
-                    Email
+                <Label htmlFor="email" className="text-gold-muted text-xs tracking-wider uppercase font-medium">
+                  Email
                   </Label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-silk" />
-                    <Input
-                      id="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="seu@email.com"
-                      className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-silk/50 focus:border-gold/50 focus:ring-gold/20"
-                      required
-                    />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gold-muted" />
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="seu@email.com"
+                    className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-gold/50 focus:ring-gold/20"
+                    required
+                  />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <Label htmlFor="password" className="text-silk text-xs tracking-wider uppercase">
+                    <Label htmlFor="password" className="text-gold-muted text-xs tracking-wider uppercase font-medium">
                       Senha
                     </Label>
                     {mode === "login" && (
                       <button
                         type="button"
                         onClick={() => setMode("forgot")}
-                        className="text-gold/70 text-xs hover:text-gold transition-colors"
+                        className="text-gold text-xs hover:text-gold/80 transition-colors"
                       >
                         Esqueceu a senha?
                       </button>
                     )}
                   </div>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-silk" />
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gold-muted" />
                     <Input
                       id="password"
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-silk/50 focus:border-gold/50 focus:ring-gold/20"
+                      className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-gold/50 focus:ring-gold/20"
                       required
                       minLength={6}
                     />
@@ -232,7 +232,7 @@ const Login = () => {
               <div className="mt-8 text-center">
                 <button
                   onClick={() => setMode(mode === "login" ? "signup" : "login")}
-                  className="text-silk text-sm hover:text-gold transition-colors"
+                  className="text-white/70 text-sm hover:text-gold transition-colors"
                 >
                   {mode === "login" ? "Não tem conta? Solicite seu convite" : "Já possui acesso? Entre aqui"}
                 </button>
@@ -242,14 +242,14 @@ const Login = () => {
 
           {/* Decorative line */}
           <div className="mt-8 flex items-center gap-4">
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-silk/50 text-xs">EXCLUSIVO</span>
+            <div className="flex-1 h-px bg-white/20" />
+            <span className="text-white/50 text-xs">EXCLUSIVO</span>
             <div className="flex-1 h-px bg-white/10" />
           </div>
         </div>
 
         {/* Footer text */}
-        <p className="text-center text-silk/40 text-xs mt-6 tracking-wider">
+        <p className="text-center text-white/50 text-xs mt-6 tracking-wider">
           Acesso restrito a membros convidados
         </p>
       </div>
