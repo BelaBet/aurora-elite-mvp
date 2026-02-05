@@ -164,6 +164,57 @@ export type Database = {
         }
         Relationships: []
       }
+      travel_history: {
+        Row: {
+          created_at: string
+          currency: string | null
+          destination: string
+          id: string
+          notes: string | null
+          origin: string | null
+          return_date: string | null
+          service_provider: string | null
+          status: string
+          total_cost: number | null
+          travel_date: string
+          travel_type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          currency?: string | null
+          destination: string
+          id?: string
+          notes?: string | null
+          origin?: string | null
+          return_date?: string | null
+          service_provider?: string | null
+          status?: string
+          total_cost?: number | null
+          travel_date: string
+          travel_type: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          currency?: string | null
+          destination?: string
+          id?: string
+          notes?: string | null
+          origin?: string | null
+          return_date?: string | null
+          service_provider?: string | null
+          status?: string
+          total_cost?: number | null
+          travel_date?: string
+          travel_type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       vault_posts: {
         Row: {
           content: string
