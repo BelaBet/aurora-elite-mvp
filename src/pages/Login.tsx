@@ -192,7 +192,7 @@ const Login = () => {
                       <button
                         type="button"
                         onClick={() => setMode("forgot")}
-                        className="text-gold text-xs hover:text-gold/80 transition-colors"
+                        className="text-gold text-sm font-medium hover:text-gold/80 hover:underline transition-colors"
                       >
                         Esqueceu a senha?
                       </button>
@@ -215,7 +215,7 @@ const Login = () => {
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-gold-muted hover:text-gold transition-colors"
                     >
-                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                      {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                     </button>
                   </div>
                 </div>
