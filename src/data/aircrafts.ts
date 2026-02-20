@@ -3,6 +3,7 @@ import kingAirC90 from "@/assets/aircraft/king-air-c90.jpg";
 import kingAirC90Alt from "@/assets/aircraft/king-air-c90-alt.jpg";
 import kingAirB200 from "@/assets/aircraft/king-air-b200.jpg";
 import senecaI from "@/assets/aircraft/seneca-i.jpg";
+import senecaIII from "@/assets/aircraft/seneca-iii.webp";
 import senecaII from "@/assets/aircraft/seneca-ii.jpg";
 import senecaV from "@/assets/aircraft/seneca-v.jpg";
 import phenom300e from "@/assets/aircraft/phenom-300e.webp";
@@ -105,7 +106,7 @@ export const aircrafts: Aircraft[] = [
     id: 10,
     name: "Seneca III",
     type: "Bimotor Pistão",
-    image: senecaII,
+    image: senecaIII,
     capacity: 5,
     range: "1,520 km",
     features: ["Aviônica moderna", "Piloto automático", "Trem retrátil"],
