@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,7 +17,17 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { toast } = useToast();
+
+  // Same-origin relative path for post-login redirect (e.g. OAuth consent flow).
+  const rawNext = searchParams.get("next");
+  const nextPath =
+    rawNext && rawNext.startsWith("/") && !rawNext.startsWith("//") ? rawNext : null;
+  const postLoginTarget = nextPath ?? "/dashboard";
+  const signupRedirect = nextPath
+    ? `${window.location.origin}${nextPath}`
+    : window.location.origin;
 
   const passwordStrength = useMemo(() => {
     if (!password) return { level: 0, label: "", color: "" };
@@ -68,13 +78,13 @@ const Login = () => {
           password,
         });
         if (error) throw error;
-        navigate("/dashboard");
+        navigate(postLoginTarget);
       } else if (mode === "signup") {
         const { error } = await supabase.auth.signUp({
           email,
           password,
           options: {
-            emailRedirectTo: window.location.origin,
+            emailRedirectTo: signupRedirect,
           },
         });
         if (error) throw error;
