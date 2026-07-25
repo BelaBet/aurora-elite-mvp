@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://wwgtcvpktisjhalfbjhp.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "aurora-elite-mcp",
+      "version": "0.1.0",
+      "title": "Aurora Elite"
+    },
+    "tools": [
+      {
+        "name": "get_profile",
+        "title": "Get my Aurora Elite profile",
+        "description": "Return the signed-in user's Aurora Elite profile (pseudonym, bio, avatar).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_travel_history",
+        "title": "List my travel history",
+        "description": "List the signed-in user's Aurora Elite travel history entries, most recent first.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "limit": {
+              "description": "Maximum number of trips to return (default 20).",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_vault_posts",
+        "title": "List Vault posts",
+        "description": "List recent posts from The Vault, the Aurora Elite members' feed.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "limit": {
+              "description": "Maximum number of posts to return (default 20).",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "create_vault_post",
+        "title": "Create a Vault post",
+        "description": "Publish a new post to The Vault as the signed-in Aurora Elite member.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "content": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Post body text."
+            },
+            "destination": {
+              "description": "Optional destination tag.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "content"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
