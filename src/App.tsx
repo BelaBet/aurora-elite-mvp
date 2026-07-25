@@ -8,6 +8,7 @@ import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
+import OAuthConsent from "./pages/OAuthConsent";
 import Transportes from "./pages/dashboard/Transportes";
 import Concierge from "./pages/dashboard/Concierge";
 import Hospedagem from "./pages/dashboard/Hospedagem";
@@ -33,6 +34,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
             <Route
               path="/dashboard"
               element={
