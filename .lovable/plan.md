@@ -1,5 +1,5 @@
 
-# Aurora Elite - MVP de Viagens Ultraluxo
+# LV Concierge - MVP de Viagens Ultraluxo
 
 ## Visão Geral
 Um aplicativo de viagens ultraluxo com estética "Quiet Luxury" - minimalista, elegante e exclusivo. Interface em tons de dourado champagne, preto fosco e muito espaço em branco, com tipografia sans-serif moderna.
@@ -30,7 +30,7 @@ Um aplicativo de viagens ultraluxo com estética "Quiet Luxury" - minimalista, e
 
 ### 1. Tela de Login (Estilo Convite VIP)
 - Design minimalista tipo "convite exclusivo"
-- Logo Aurora Elite com animação sutil de entrada
+- Logo LV Concierge com animação sutil de entrada
 - Opções: Email/senha e Google Sign-In
 - Texto de boas-vindas: "Você foi convidado"
 - Fundo escuro com detalhes dourados

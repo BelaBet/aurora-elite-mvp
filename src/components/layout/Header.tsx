@@ -24,7 +24,7 @@ const Header = () => {
     .map((n) => n[0])
     .join("")
     .slice(0, 2)
-    .toUpperCase() || "AE";
+    .toUpperCase() || "LV";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
@@ -32,10 +32,10 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center">
-            <span className="text-sm font-light gold-text">AE</span>
+            <span className="text-sm font-light gold-text">LV</span>
           </div>
           <span className="text-lg font-light tracking-widest hidden sm:block">
-            AURORA ELITE
+            LV CONCIERGE
           </span>
         </div>
 

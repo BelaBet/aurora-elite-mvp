@@ -17,7 +17,7 @@ export default defineTool({
   name: "list_vault_posts",
   title: "List Vault posts",
   description:
-    "List recent posts from The Vault, the Aurora Elite members' feed.",
+    "List recent posts from The Vault, the LV Concierge members' feed.",
   inputSchema: {
     limit: z
       .number()

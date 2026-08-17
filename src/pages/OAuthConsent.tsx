@@ -105,14 +105,14 @@ const OAuthConsent = () => {
       <div className="glass rounded-2xl p-8 md:p-10 max-w-md w-full border border-gold/20">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/10 mb-4">
-            <span className="text-2xl font-light gold-text">AE</span>
+            <span className="text-2xl font-light gold-text">LV</span>
           </div>
           <h1 className="text-2xl font-light text-white tracking-widest mb-2">
             Conectar {clientName}
           </h1>
           <div className="w-12 h-px bg-gold/50 mx-auto mb-4" />
           <p className="text-white/70 text-sm">
-            {clientName} poderá usar as ferramentas do Aurora Elite em seu nome enquanto você
+            {clientName} poderá usar as ferramentas do LV Concierge em seu nome enquanto você
             estiver conectado.
           </p>
         </div>
@@ -131,7 +131,7 @@ const OAuthConsent = () => {
         )}
 
         <p className="text-xs text-white/50 mb-6">
-          Isto não substitui as políticas de segurança e privacidade do Aurora Elite.
+          Isto não substitui as políticas de segurança e privacidade do LV Concierge.
         </p>
 
         <div className="flex gap-3">

@@ -17,7 +17,7 @@ export default defineTool({
   name: "list_travel_history",
   title: "List my travel history",
   description:
-    "List the signed-in user's Aurora Elite travel history entries, most recent first.",
+    "List the signed-in user's LV Concierge travel history entries, most recent first.",
   inputSchema: {
     limit: z
       .number()

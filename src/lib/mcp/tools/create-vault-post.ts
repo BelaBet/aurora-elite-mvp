@@ -17,7 +17,7 @@ export default defineTool({
   name: "create_vault_post",
   title: "Create a Vault post",
   description:
-    "Publish a new post to The Vault as the signed-in Aurora Elite member.",
+    "Publish a new post to The Vault as the signed-in LV Concierge member.",
   inputSchema: {
     content: z.string().trim().min(1).describe("Post body text."),
     destination: z.string().trim().optional().describe("Optional destination tag."),

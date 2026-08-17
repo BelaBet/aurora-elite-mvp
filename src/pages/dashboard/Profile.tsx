@@ -27,7 +27,7 @@ const Profile = () => {
     .map((n) => n[0])
     .join("")
     .slice(0, 2)
-    .toUpperCase() || "AE";
+    .toUpperCase() || "LV";
 
   const handleAvatarClick = () => {
     fileInputRef.current?.click();
