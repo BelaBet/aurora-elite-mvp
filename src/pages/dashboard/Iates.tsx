@@ -108,10 +108,10 @@ const Iates = () => {
     : yachts;
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in">
       {/* Header */}
       <div className="text-center mb-4">
-        <h1 className="text-2xl font-light tracking-wider gold-text mb-2">
+        <h1 className="text-xl sm:text-2xl font-light tracking-wider gold-text mb-2">
           Iates & Embarcações
         </h1>
         <p className="text-muted-foreground">
@@ -121,8 +121,8 @@ const Iates = () => {
 
       {/* Search Section */}
       <Card className="glass border-gold/10">
-        <CardContent className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <CardContent className="p-4 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div className="space-y-2">
               <Label className="text-xs tracking-wider uppercase text-muted-foreground">
                 Destino
@@ -220,7 +220,7 @@ const Iates = () => {
       </Card>
 
       {/* Yachts Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {filteredYachts.map((yacht, index) => (
           <Card 
             key={yacht.id}
@@ -245,7 +245,7 @@ const Iates = () => {
               </Badge>
 
               <div className="absolute bottom-4 left-4 right-4">
-                <h3 className="text-xl font-medium text-white mb-1">
+                <h3 className="text-lg sm:text-xl font-medium text-white mb-1">
                   {yacht.name}
                 </h3>
               </div>

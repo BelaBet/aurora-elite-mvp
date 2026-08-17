@@ -110,10 +110,10 @@ const Esqui = () => {
   const [activeTab, setActiveTab] = useState<"equipment" | "wear">("equipment");
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in">
       {/* Header */}
       <div className="text-center mb-4">
-        <h1 className="text-2xl font-light tracking-wider gold-text mb-2 flex items-center justify-center gap-2">
+        <h1 className="text-xl sm:text-2xl font-light tracking-wider gold-text mb-2 flex items-center justify-center gap-2">
           <Snowflake className="h-6 w-6" />
           Ski & Snow
         </h1>
@@ -124,8 +124,8 @@ const Esqui = () => {
 
       {/* Search Section */}
       <Card className="glass border-gold/10">
-        <CardContent className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <CardContent className="p-4 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div className="space-y-2">
               <Label className="text-xs tracking-wider uppercase text-muted-foreground">
                 Estação de Esqui
@@ -201,7 +201,7 @@ const Esqui = () => {
 
       {/* Equipment Grid */}
       {activeTab === "equipment" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {equipmentPackages.map((pkg, index) => (
             <Card 
               key={pkg.id}
@@ -270,7 +270,7 @@ const Esqui = () => {
 
       {/* Ski Wear Grid */}
       {activeTab === "wear" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {skiWear.map((item, index) => (
             <Card 
               key={item.id}
@@ -332,7 +332,7 @@ const Esqui = () => {
 
       {/* Delivery Info */}
       <Card className="glass border-gold/10">
-        <CardContent className="p-6 text-center">
+        <CardContent className="p-4 sm:p-6 text-center">
           <h3 className="text-lg font-medium mb-2">Entrega no Hotel ou Chalé</h3>
           <p className="text-muted-foreground">
             Todos os equipamentos são entregues ajustados e prontos para uso no seu local de hospedagem.

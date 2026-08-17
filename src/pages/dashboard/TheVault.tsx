@@ -171,7 +171,7 @@ const TheVault = () => {
     <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-light tracking-widest mb-2">THE VAULT</h1>
+        <h1 className="text-xl sm:text-2xl font-light tracking-widest mb-2">THE VAULT</h1>
         <p className="text-muted-foreground text-sm">
           Insights exclusivos da nossa comunidade
         </p>
