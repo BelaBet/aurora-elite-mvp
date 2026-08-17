@@ -108,15 +108,15 @@ const Carros = () => {
     : cars.filter((c) => c.category === selectedCategory);
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in">
       {/* Search Section */}
       <Card className="glass border-gold/10">
-        <CardContent className="p-6">
+        <CardContent className="p-4 sm:p-6">
           <h2 className="text-lg font-light tracking-wider mb-6 gold-text">
             Locação de Veículos Premium
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label className="text-xs tracking-wider uppercase text-muted-foreground">
                 Local de Retirada
@@ -169,14 +169,14 @@ const Carros = () => {
       </Card>
 
       {/* Cars Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
         {filteredCars.map((car, index) => (
           <Card 
             key={car.id}
             className="group overflow-hidden border-border/50 hover-lift cursor-pointer"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="relative h-48 overflow-hidden">
+            <div className="relative h-40 sm:h-48 overflow-hidden">
               <img
                 src={car.image}
                 alt={car.name}

@@ -173,13 +173,13 @@ const Login = () => {
 
       <div className="relative w-full max-w-md animate-fade-in">
         {/* VIP Invitation Card */}
-        <div className="glass rounded-2xl p-8 md:p-12 border border-gold/20">
+        <div className="glass rounded-2xl p-6 sm:p-8 md:p-12 border border-gold/20">
           {/* Logo */}
           <div className="text-center mb-10">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/10 mb-6">
               <span className="text-2xl font-light gold-text">LV</span>
             </div>
-            <h1 className="text-3xl font-light text-white tracking-widest mb-2">
+            <h1 className="text-2xl sm:text-3xl font-light text-white tracking-wider sm:tracking-widest mb-2">
               LV CONCIERGE
             </h1>
             <div className="w-12 h-px bg-gold/50 mx-auto mb-4" />

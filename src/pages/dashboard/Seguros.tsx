@@ -113,10 +113,10 @@ const Seguros = () => {
   const [planType, setPlanType] = useState<"trip" | "annual">("trip");
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-light tracking-wider gold-text mb-2">
+        <h1 className="text-xl sm:text-2xl font-light tracking-wider gold-text mb-2">
           Seguro Viagem Premium
         </h1>
         <p className="text-muted-foreground max-w-xl mx-auto">
@@ -153,7 +153,7 @@ const Seguros = () => {
 
       {/* Benefits Banner */}
       <Card className="glass border-gold/10">
-        <CardContent className="p-6">
+        <CardContent className="p-4 sm:p-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div className="flex flex-col items-center gap-2">
               <div className="p-3 rounded-full bg-gold/10">
@@ -185,7 +185,7 @@ const Seguros = () => {
 
       {/* Plans Grid */}
       {planType === "trip" ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {insurancePlans.map((plan, index) => (
             <Card 
               key={plan.id}
@@ -208,15 +208,15 @@ const Seguros = () => {
                 </div>
               )}
               
-              <CardContent className="p-6">
+              <CardContent className="p-4 sm:p-6">
                 <div className="mb-6">
-                  <h3 className="text-xl font-medium mb-2">{plan.name}</h3>
+                  <h3 className="text-lg sm:text-xl font-medium mb-2">{plan.name}</h3>
                   <p className="text-sm text-muted-foreground">{plan.description}</p>
                 </div>
 
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-bold gold-text">{plan.price}</span>
+                    <span className="text-2xl sm:text-3xl font-bold gold-text">{plan.price}</span>
                     <span className="text-muted-foreground text-sm">{plan.period}</span>
                   </div>
                   <Badge variant="secondary" className="mt-2">
@@ -250,7 +250,7 @@ const Seguros = () => {
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {annualPlans.map((plan, index) => (
             <Card 
               key={plan.id}
@@ -267,15 +267,15 @@ const Seguros = () => {
                 </div>
               )}
               
-              <CardContent className="p-6">
+              <CardContent className="p-4 sm:p-6">
                 <div className="mb-6">
-                  <h3 className="text-xl font-medium mb-2">{plan.name}</h3>
+                  <h3 className="text-lg sm:text-xl font-medium mb-2">{plan.name}</h3>
                   <p className="text-sm text-muted-foreground">{plan.description}</p>
                 </div>
 
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-bold gold-text">{plan.price}</span>
+                    <span className="text-2xl sm:text-3xl font-bold gold-text">{plan.price}</span>
                     <span className="text-muted-foreground text-sm">{plan.period}</span>
                   </div>
                   <div className="flex gap-2 mt-2">
@@ -318,7 +318,7 @@ const Seguros = () => {
 
       {/* Contact Banner */}
       <Card className="glass border-gold/10">
-        <CardContent className="p-6 text-center">
+        <CardContent className="p-4 sm:p-6 text-center">
           <h3 className="text-lg font-medium mb-2">Precisa de um plano personalizado?</h3>
           <p className="text-muted-foreground mb-4">
             Nossa equipe pode criar uma cobertura sob medida para suas necessidades específicas.

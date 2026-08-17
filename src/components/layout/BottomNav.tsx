@@ -32,7 +32,7 @@ const BottomNav = () => {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 glass border-t border-border/50">
-      <div className="flex items-center justify-around h-16 max-w-lg mx-auto px-2">
+      <div className="flex items-center justify-around h-16 max-w-lg mx-auto px-1 sm:px-2">
         {navItems.map(({ to, icon: Icon, label }) => {
           const isActive = location.pathname === to || 
             (to !== "/dashboard" && location.pathname.startsWith(to));
@@ -42,19 +42,19 @@ const BottomNav = () => {
               key={to}
               to={to}
               className={cn(
-                "flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-all duration-300",
+                "flex flex-col items-center gap-0.5 px-1.5 sm:px-3 py-2 rounded-lg min-w-0 flex-1 transition-all duration-300",
                 isActive 
                   ? "text-gold" 
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
               <div className={cn(
-                "p-2 rounded-full transition-all duration-300",
+                "p-1.5 sm:p-2 rounded-full transition-all duration-300",
                 isActive && "bg-gold/10"
               )}>
                 <Icon className="h-5 w-5" />
               </div>
-              <span className="text-[10px] tracking-wider uppercase font-medium">
+              <span className="text-[9px] sm:text-[10px] tracking-wider uppercase font-medium max-w-full truncate">
                 {label}
               </span>
             </NavLink>
@@ -66,19 +66,19 @@ const BottomNav = () => {
           <DropdownMenuTrigger asChild>
             <button
               className={cn(
-                "flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-all duration-300",
+                "flex flex-col items-center gap-0.5 px-1.5 sm:px-3 py-2 rounded-lg min-w-0 flex-1 transition-all duration-300",
                 isMoreActive 
                   ? "text-gold" 
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
               <div className={cn(
-                "p-2 rounded-full transition-all duration-300",
+                "p-1.5 sm:p-2 rounded-full transition-all duration-300",
                 isMoreActive && "bg-gold/10"
               )}>
                 <MoreHorizontal className="h-5 w-5" />
               </div>
-              <span className="text-[10px] tracking-wider uppercase font-medium">
+              <span className="text-[9px] sm:text-[10px] tracking-wider uppercase font-medium max-w-full truncate">
                 Mais
               </span>
             </button>

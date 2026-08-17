@@ -29,12 +29,12 @@ const Transportes = () => {
     : aircrafts;
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in">
       <TravelHistory />
 
       {/* Route Selector */}
       <Card className="glass border-gold/10">
-        <CardContent className="p-6">
+        <CardContent className="p-4 sm:p-6">
           <h2 className="text-lg font-light tracking-wider mb-6 gold-text">
             Planeje sua Rota
           </h2>
@@ -127,14 +127,14 @@ const Transportes = () => {
       </Card>
 
       {/* Aircraft Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {filteredAircrafts.map((aircraft, index) => (
           <Card 
             key={aircraft.id}
             className="group overflow-hidden border-border/50 hover-lift cursor-pointer"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="relative h-48 overflow-hidden">
+            <div className="relative h-40 sm:h-48 overflow-hidden">
               <img
                 src={aircraft.image}
                 alt={aircraft.name}

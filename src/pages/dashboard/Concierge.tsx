@@ -158,9 +158,9 @@ const Concierge = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto h-[calc(100vh-12rem)] flex flex-col animate-fade-in">
+    <div className="max-w-3xl mx-auto h-[calc(100dvh-11rem)] sm:h-[calc(100dvh-12rem)] flex flex-col animate-fade-in">
       {/* Header */}
-      <div className="text-center mb-6">
+      <div className="text-center mb-4 sm:mb-6">
         <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold/10 mb-3">
           <Sparkles className="h-6 w-6 text-gold" />
         </div>
@@ -172,16 +172,16 @@ const Concierge = () => {
 
       {/* Quick Actions */}
       {messages.length === 1 && (
-        <div className="grid grid-cols-3 gap-3 mb-6">
+        <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-6">
           {quickActions.map(({ icon: Icon, label, prompt }) => (
             <Button
               key={label}
               variant="outline"
-              className="h-auto py-4 flex-col gap-2 border-border/50 hover:border-gold/50 hover:bg-gold/5"
+              className="h-auto py-3 sm:py-4 px-2 flex-col gap-1.5 sm:gap-2 border-border/50 hover:border-gold/50 hover:bg-gold/5"
               onClick={() => sendMessage(prompt)}
             >
               <Icon className="h-5 w-5 text-gold" />
-              <span className="text-xs">{label}</span>
+              <span className="text-[11px] sm:text-xs leading-tight text-center">{label}</span>
             </Button>
           ))}
         </div>
@@ -212,7 +212,7 @@ const Concierge = () => {
               
               <div
                 className={cn(
-                  "max-w-[80%] rounded-2xl px-4 py-3 text-sm",
+                  "max-w-[85%] sm:max-w-[80%] rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm break-words",
                   message.role === "user"
                     ? "bg-gold text-aurora-black"
                     : "glass border border-border/50"
