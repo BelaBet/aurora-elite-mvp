@@ -206,7 +206,7 @@ const Concierge = () => {
                   "text-xs",
                   message.role === "assistant" ? "bg-gold/10 text-gold" : "bg-primary/10"
                 )}>
-                  {message.role === "assistant" ? "AE" : profile?.pseudonym?.slice(0, 2).toUpperCase() || "U"}
+                  {message.role === "assistant" ? "LV" : profile?.pseudonym?.slice(0, 2).toUpperCase() || "U"}
                 </AvatarFallback>
               </Avatar>
               
@@ -232,7 +232,7 @@ const Concierge = () => {
           {isLoading && messages[messages.length - 1]?.role === "user" && (
             <div className="flex gap-3">
               <Avatar className="h-8 w-8 shrink-0 bg-gold/10">
-                <AvatarFallback className="bg-gold/10 text-gold text-xs">AE</AvatarFallback>
+                <AvatarFallback className="bg-gold/10 text-gold text-xs">LV</AvatarFallback>
               </Avatar>
               <div className="glass border border-border/50 rounded-2xl px-4 py-3">
                 <Loader2 className="h-4 w-4 animate-spin text-gold" />

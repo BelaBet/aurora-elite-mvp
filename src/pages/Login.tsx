@@ -177,7 +177,7 @@ const Login = () => {
           {/* Logo */}
           <div className="text-center mb-10">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/10 mb-6">
-              <span className="text-2xl font-light gold-text">AE</span>
+              <span className="text-2xl font-light gold-text">LV</span>
             </div>
             <h1 className="text-3xl font-light text-white tracking-widest mb-2">
               LV CONCIERGE
