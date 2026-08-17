@@ -81,7 +81,7 @@ const OAuthConsent = () => {
   if (error) {
     return (
       <div className="min-h-screen bg-aurora-black flex items-center justify-center p-6">
-        <div className="glass rounded-2xl p-8 max-w-md w-full border border-gold/20 text-white">
+        <div className="glass rounded-2xl p-6 sm:p-8 max-w-md w-full border border-gold/20 text-white">
           <h1 className="text-xl font-light tracking-widest mb-3">Erro</h1>
           <p className="text-white/70 text-sm">{error}</p>
         </div>
@@ -102,7 +102,7 @@ const OAuthConsent = () => {
 
   return (
     <div className="min-h-screen bg-aurora-black flex items-center justify-center p-6">
-      <div className="glass rounded-2xl p-8 md:p-10 max-w-md w-full border border-gold/20">
+      <div className="glass rounded-2xl p-6 sm:p-8 md:p-10 max-w-md w-full border border-gold/20">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/10 mb-4">
             <span className="text-2xl font-light gold-text">LV</span>

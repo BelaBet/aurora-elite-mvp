@@ -176,7 +176,7 @@ const Carros = () => {
             className="group overflow-hidden border-border/50 hover-lift cursor-pointer"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="relative h-48 overflow-hidden">
+            <div className="relative h-40 sm:h-48 overflow-hidden">
               <img
                 src={car.image}
                 alt={car.name}

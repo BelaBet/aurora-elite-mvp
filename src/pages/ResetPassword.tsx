@@ -91,7 +91,7 @@ const ResetPassword = () => {
       </div>
 
       <div className="relative w-full max-w-md animate-fade-in">
-        <div className="glass rounded-2xl p-8 md:p-12 border border-gold/20">
+        <div className="glass rounded-2xl p-6 sm:p-8 md:p-12 border border-gold/20">
           {/* Logo */}
           <div className="text-center mb-10">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/10 mb-6">

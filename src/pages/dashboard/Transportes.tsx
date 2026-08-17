@@ -134,7 +134,7 @@ const Transportes = () => {
             className="group overflow-hidden border-border/50 hover-lift cursor-pointer"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="relative h-48 overflow-hidden">
+            <div className="relative h-40 sm:h-48 overflow-hidden">
               <img
                 src={aircraft.image}
                 alt={aircraft.name}

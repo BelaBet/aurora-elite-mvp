@@ -24,7 +24,7 @@ const PropertyCard = ({ property, index }: { property: Property; index: number }
       className="group overflow-hidden border-border/50 hover-lift cursor-pointer animate-slide-up"
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      <div className="relative h-56 overflow-hidden">
+      <div className="relative h-44 sm:h-56 overflow-hidden">
         <img
           src={property.images[currentImage]}
           alt={property.name}

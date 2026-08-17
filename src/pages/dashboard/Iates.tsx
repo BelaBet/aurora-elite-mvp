@@ -227,7 +227,7 @@ const Iates = () => {
             className="group overflow-hidden border-border/50 hover-lift cursor-pointer"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="relative h-56 overflow-hidden">
+            <div className="relative h-44 sm:h-56 overflow-hidden">
               <img
                 src={yacht.image}
                 alt={yacht.name}

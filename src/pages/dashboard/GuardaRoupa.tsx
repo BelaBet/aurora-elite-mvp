@@ -267,7 +267,7 @@ const GuardaRoupa = () => {
             )}
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="relative h-56 overflow-hidden">
+            <div className="relative h-44 sm:h-56 overflow-hidden">
               <img
                 src={collection.image}
                 alt={collection.name}

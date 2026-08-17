@@ -211,7 +211,7 @@ const Esqui = () => {
               )}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-40 sm:h-48 overflow-hidden">
                 <img
                   src={pkg.image}
                   alt={pkg.name}
@@ -280,7 +280,7 @@ const Esqui = () => {
               )}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-40 sm:h-48 overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.name}
