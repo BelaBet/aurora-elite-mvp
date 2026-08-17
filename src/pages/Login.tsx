@@ -180,7 +180,7 @@ const Login = () => {
               <span className="text-2xl font-light gold-text">AE</span>
             </div>
             <h1 className="text-3xl font-light text-white tracking-widest mb-2">
-              AURORA ELITE
+              LV CONCIERGE
             </h1>
             <div className="w-12 h-px bg-gold/50 mx-auto mb-4" />
             <p className="text-white/70 text-sm tracking-wider">

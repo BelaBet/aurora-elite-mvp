@@ -35,7 +35,7 @@ const Concierge = () => {
     {
       id: "welcome",
       role: "assistant",
-      content: `Olá${profile?.pseudonym ? `, ${profile.pseudonym.split(" ")[0]}` : ""}! Sou seu concierge pessoal da Aurora Elite. Como posso ajudá-lo a planejar sua próxima experiência extraordinária?`,
+      content: `Olá${profile?.pseudonym ? `, ${profile.pseudonym.split(" ")[0]}` : ""}! Sou seu concierge pessoal da LV Concierge. Como posso ajudá-lo a planejar sua próxima experiência extraordinária?`,
     },
   ]);
   const [input, setInput] = useState("");

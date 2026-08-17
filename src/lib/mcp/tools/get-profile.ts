@@ -14,9 +14,9 @@ function supabaseForUser(ctx: ToolContext) {
 
 export default defineTool({
   name: "get_profile",
-  title: "Get my Aurora Elite profile",
+  title: "Get my LV Concierge profile",
   description:
-    "Return the signed-in user's Aurora Elite profile (pseudonym, bio, avatar).",
+    "Return the signed-in user's LV Concierge profile (pseudonym, bio, avatar).",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async (_input, ctx) => {

@@ -20,8 +20,8 @@ function supabaseForUser(ctx) {
 }
 var get_profile_default = defineTool({
   name: "get_profile",
-  title: "Get my Aurora Elite profile",
-  description: "Return the signed-in user's Aurora Elite profile (pseudonym, bio, avatar).",
+  title: "Get my LV Concierge profile",
+  description: "Return the signed-in user's LV Concierge profile (pseudonym, bio, avatar).",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async (_input, ctx) => {
@@ -56,7 +56,7 @@ function supabaseForUser2(ctx) {
 var list_travel_history_default = defineTool2({
   name: "list_travel_history",
   title: "List my travel history",
-  description: "List the signed-in user's Aurora Elite travel history entries, most recent first.",
+  description: "List the signed-in user's LV Concierge travel history entries, most recent first.",
   inputSchema: {
     limit: z.number().int().min(1).max(100).optional().describe("Maximum number of trips to return (default 20).")
   },
@@ -93,7 +93,7 @@ function supabaseForUser3(ctx) {
 var list_vault_posts_default = defineTool3({
   name: "list_vault_posts",
   title: "List Vault posts",
-  description: "List recent posts from The Vault, the Aurora Elite members' feed.",
+  description: "List recent posts from The Vault, the LV Concierge members' feed.",
   inputSchema: {
     limit: z2.number().int().min(1).max(50).optional().describe("Maximum number of posts to return (default 20).")
   },
@@ -130,7 +130,7 @@ function supabaseForUser4(ctx) {
 var create_vault_post_default = defineTool4({
   name: "create_vault_post",
   title: "Create a Vault post",
-  description: "Publish a new post to The Vault as the signed-in Aurora Elite member.",
+  description: "Publish a new post to The Vault as the signed-in LV Concierge member.",
   inputSchema: {
     content: z3.string().trim().min(1).describe("Post body text."),
     destination: z3.string().trim().optional().describe("Optional destination tag.")
@@ -158,10 +158,10 @@ var create_vault_post_default = defineTool4({
 // src/lib/mcp/index.ts
 var projectRef = "wwgtcvpktisjhalfbjhp";
 var mcp_default = defineMcp({
-  name: "aurora-elite-mcp",
-  title: "Aurora Elite",
+  name: "lv-concierge-mcp",
+  title: "LV Concierge",
   version: "0.1.0",
-  instructions: "Tools for the Aurora Elite ultra-luxury travel app. Read the signed-in member's profile, travel history, and The Vault feed, and publish new Vault posts as that member.",
+  instructions: "Tools for the LV Concierge ultra-luxury travel app. Read the signed-in member's profile, travel history, and The Vault feed, and publish new Vault posts as that member.",
   auth: auth.oauth.issuer({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated"

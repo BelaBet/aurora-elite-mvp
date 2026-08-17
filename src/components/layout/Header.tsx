@@ -35,7 +35,7 @@ const Header = () => {
             <span className="text-sm font-light gold-text">AE</span>
           </div>
           <span className="text-lg font-light tracking-widest hidden sm:block">
-            AURORA ELITE
+            LV CONCIERGE
           </span>
         </div>
 

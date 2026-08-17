@@ -4,13 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Aurora Elite - Quiet Luxury Design System
+/* LV Concierge - Quiet Luxury Design System
    All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Core Aurora Elite Colors */
+    /* Core LV Concierge Colors */
     --gold: 43 52% 60%;
     --gold-foreground: 0 0% 100%;
     --gold-muted: 43 30% 75%;

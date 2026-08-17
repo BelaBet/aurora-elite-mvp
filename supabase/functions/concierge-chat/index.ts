@@ -5,7 +5,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-const SYSTEM_PROMPT = `Você é o concierge pessoal de viagens da Aurora Elite, uma plataforma exclusiva de viagens ultraluxo. 
+const SYSTEM_PROMPT = `Você é o concierge pessoal de viagens da LV Concierge, uma plataforma exclusiva de viagens ultraluxo. 
 
 Seu papel:
 - Ajudar a planejar viagens extraordinárias para destinos exclusivos
