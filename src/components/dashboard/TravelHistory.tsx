@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
+import { AlertCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { 
@@ -63,26 +65,33 @@ const TravelHistory = () => {
   const { user } = useAuth();
   const [travels, setTravels] = useState<TravelRecord[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     const fetchTravels = async () => {
       if (!user) return;
 
-      const { data, error } = await supabase
+      setLoading(true);
+      const { data, error: fetchError } = await supabase
         .from("travel_history")
         .select("*")
         .eq("user_id", user.id)
         .order("travel_date", { ascending: false })
         .limit(10);
 
-      if (!error && data) {
-        setTravels(data);
+      if (fetchError) {
+        console.error("Travel history error:", fetchError);
+        setError(true);
+      } else {
+        setError(false);
+        setTravels(data || []);
       }
       setLoading(false);
     };
 
     fetchTravels();
-  }, [user]);
+  }, [user, reloadKey]);
 
   if (loading) {
     return (
@@ -102,6 +111,31 @@ const TravelHistory = () => {
               </div>
             </div>
           ))}
+        </CardContent>
+      </Card>
+    );
+  }
+
+  if (error) {
+    return (
+      <Card className="glass border-destructive/30">
+        <CardHeader>
+          <CardTitle className="text-lg font-light tracking-wider gold-text">
+            Histórico de Viagens
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="text-center py-8 text-muted-foreground space-y-3">
+            <AlertCircle className="h-10 w-10 mx-auto opacity-60" />
+            <p className="text-sm">Não foi possível carregar suas viagens.</p>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setReloadKey((k) => k + 1)}
+            >
+              Tentar de novo
+            </Button>
+          </div>
         </CardContent>
       </Card>
     );

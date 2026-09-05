@@ -9,13 +9,19 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LogOut, User } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
+import { toast } from "sonner";
 
 const Header = () => {
   const navigate = useNavigate();
   const { user, profile } = useAuth();
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error("Sign out error:", error);
+      toast.error("Não foi possível sair. Tente novamente.");
+      return;
+    }
     navigate("/");
   };
 
