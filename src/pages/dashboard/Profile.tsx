@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Camera, Loader2, Save } from "lucide-react";
@@ -21,6 +21,16 @@ const Profile = () => {
   const [avatarUrl, setAvatarUrl] = useState(profile?.avatar_url || "");
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
+
+  // Sync local form state once the async profile arrives
+  useEffect(() => {
+    if (!profile || hydrated) return;
+    setPseudonym(profile.pseudonym || "");
+    setBio(profile.bio || "");
+    setAvatarUrl(profile.avatar_url || "");
+    setHydrated(true);
+  }, [profile, hydrated]);
 
   const initials = pseudonym
     ?.split(" ")

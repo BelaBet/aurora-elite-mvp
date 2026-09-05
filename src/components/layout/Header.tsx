@@ -15,7 +15,12 @@ const Header = () => {
   const { user, profile } = useAuth();
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error("Sign out error:", error);
+      toast.error("Não foi possível sair. Tente novamente.");
+      return;
+    }
     navigate("/");
   };
 
