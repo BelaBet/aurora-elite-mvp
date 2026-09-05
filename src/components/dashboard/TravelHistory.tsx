@@ -63,26 +63,33 @@ const TravelHistory = () => {
   const { user } = useAuth();
   const [travels, setTravels] = useState<TravelRecord[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     const fetchTravels = async () => {
       if (!user) return;
 
-      const { data, error } = await supabase
+      setLoading(true);
+      const { data, error: fetchError } = await supabase
         .from("travel_history")
         .select("*")
         .eq("user_id", user.id)
         .order("travel_date", { ascending: false })
         .limit(10);
 
-      if (!error && data) {
-        setTravels(data);
+      if (fetchError) {
+        console.error("Travel history error:", fetchError);
+        setError(true);
+      } else {
+        setError(false);
+        setTravels(data || []);
       }
       setLoading(false);
     };
 
     fetchTravels();
-  }, [user]);
+  }, [user, reloadKey]);
 
   if (loading) {
     return (
